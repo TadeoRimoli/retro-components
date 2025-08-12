@@ -408,7 +408,18 @@ export const DemoPage = () => {
                 <CardTitle>Calendar</CardTitle>
               </CardHeader>
               <CardContent className="flex justify-center">
-                <Calendar value={selectedDate} onChange={setSelectedDate} />
+                <Calendar
+                  value={selectedDate}
+                  onChange={(date:Date) => {
+                    console.log("Fecha seleccionada:", date)
+                    setSelectedDate(date)
+                  }}
+                  locale="es-ES"          // Idioma español
+                  weekStartsOn={1}        // Semana empieza en lunes
+                  showOutsideDays={true}  // Muestra días fuera del mes actual
+                  className="max-w-sm"    // Ancho máximo
+                  
+                />
               </CardContent>
             </Card>
 
@@ -432,7 +443,21 @@ export const DemoPage = () => {
               <CardDescription>Example data table with pagination</CardDescription>
             </CardHeader>
             <CardContent>
-              <DataTable columns={tableColumns} data={tableData} keyField="id" pageSize={2} />
+              <DataTable
+                  columns={tableColumns}
+                  data={tableData}
+                  keyField="id"
+                  pageSize={2}
+                  onEdit={(original, editado) => {
+                    // acá ya “finalizó la edición”; persistí cambios
+                    console.log("EDIT:", { original, editado })
+                  }}
+                  onDelete={(row) => {
+                    console.log("DELETE:", row)
+                  }}
+                  // opcional: limitar columnas editables
+                  editableColumns={["name", "email", "role"]}
+                />
             </CardContent>
           </Card>
         </section>
