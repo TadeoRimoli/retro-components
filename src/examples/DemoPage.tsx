@@ -18,14 +18,12 @@ import {
   Radio,
   Switch,
   Select,
-  FloatingLabelInput,
   Label,
   Alert,
   ProgressBar,
   Tabs,
   Accordion,
   Breadcrumb,
-  Dropdown,
   Steps,
   Calendar,
   DatePicker,
@@ -93,20 +91,7 @@ export const DemoPage = () => {
     { header: "Name", accessor: "name" },
     { header: "Email", accessor: "email" },
     { header: "Role", accessor: "role" },
-    {
-      header: "Actions",
-      accessor: (row: any) => (
-        <div className="flex space-x-2">
-          <Button size="sm" variant="secondary">
-            Edit
-          </Button>
-          <Button size="sm" variant="destructive">
-            Delete
-          </Button>
-        </div>
-      ),
-      className: "w-1/4",
-    },
+    
   ]
 
   const tableData = [
@@ -191,7 +176,7 @@ export const DemoPage = () => {
                 <Input label="Standard Input" placeholder="Type here" />
                 <Input label="Disabled Input" placeholder="Disabled" disabled />
                 <Input label="With Error" placeholder="Error state" error="This field is required" />
-                <FloatingLabelInput label="Floating Label" />
+                
                 <Textarea label="Text Area" placeholder="Enter multiple lines of text" />
               </CardContent>
             </Card>
