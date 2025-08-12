@@ -65,8 +65,8 @@ export const Select = ({
           </Listbox.Button>
 
           <Listbox.Options
-            className="absolute z-10 w-full mt-1 overflow-auto text-sm bg-white rounded-md 
-                     max-h-60 border-2 border-y2k-silver shadow-y2k-card
+            className="absolute z-10 w-full mt-1 max-h-60 overflow-y-auto text-sm bg-white rounded-md
+                     border-2 border-y2k-silver shadow-y2k-card
                      focus:outline-none"
           >
             {options.map((option) => (
