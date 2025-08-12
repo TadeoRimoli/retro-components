@@ -4,7 +4,7 @@ type CalendarProps = {
   value?: Date
   onChange?: (date: Date) => void
   className?: string
-  locale?: string // <- Nuevo: se puede pasar el locale
+  locale?: string // New: locale can be passed
 }
 
 export const Calendar = ({ value, onChange, className = "", locale }: CalendarProps) => {
@@ -21,7 +21,7 @@ export const Calendar = ({ value, onChange, className = "", locale }: CalendarPr
   const resolvedLocale = locale || navigator.language || "en-US"
 
   const daysOfWeek = useMemo(() => {
-    const baseDate = new Date(Date.UTC(2021, 5, 6)) // Domingo
+    const baseDate = new Date(Date.UTC(2021, 5, 6)) // Sunday
     return Array.from({ length: 7 }).map((_, i) => {
       const day = new Date(baseDate)
       day.setDate(baseDate.getDate() + i)
@@ -85,15 +85,15 @@ export const Calendar = ({ value, onChange, className = "", locale }: CalendarPr
     <div className={`bg-white border-2 border-y2k-silver-light rounded-lg p-4 shadow-[inset_0_0_10px_rgba(0,0,0,0.05),_0_4px_6px_rgba(0,0,0,0.1)] ${className}`}>
       <div className="flex items-center justify-between mb-4 bg-gradient-to-r from-y2k-silver-light to-white p-2 rounded-md">
         <div className="flex space-x-1">
-          <button onClick={goToPreviousYear} className="calendar-btn" aria-label="Año anterior">&lt;&lt;</button>
-          <button onClick={goToPreviousMonth} className="calendar-btn" aria-label="Mes anterior">&lt;</button>
+          <button onClick={goToPreviousYear} className="calendar-btn" aria-label="Previous year">&lt;&lt;</button>
+          <button onClick={goToPreviousMonth} className="calendar-btn" aria-label="Previous month">&lt;</button>
         </div>
         <h2 className="text-lg font-bold font-y2k bg-gradient-to-r from-y2k-blue to-y2k-pink bg-clip-text text-transparent">
           {monthName} {viewDate.getFullYear()}
         </h2>
         <div className="flex space-x-1">
-          <button onClick={goToNextMonth} className="calendar-btn" aria-label="Mes siguiente">&gt;</button>
-          <button onClick={goToNextYear} className="calendar-btn" aria-label="Año siguiente">&gt;&gt;</button>
+          <button onClick={goToNextMonth} className="calendar-btn" aria-label="Next month">&gt;</button>
+          <button onClick={goToNextYear} className="calendar-btn" aria-label="Next year">&gt;&gt;</button>
         </div>
       </div>
 

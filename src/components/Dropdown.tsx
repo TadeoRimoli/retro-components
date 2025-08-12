@@ -33,18 +33,18 @@ export const Dropdown = ({ trigger, items, align = "left", className = "", width
     lg: "w-64",
   }
 
-  // Calcular la posición del menú cuando se abre
+  // Calculate menu position when it opens
   const updateMenuPosition = () => {
     if (buttonRef.current && menuRef.current) {
       const buttonRect = buttonRef.current.getBoundingClientRect()
       const menuRect = menuRef.current.getBoundingClientRect()
 
-      // Posición base
+      // Base position
       let top = buttonRect.bottom + window.scrollY + 5
       let left =
         align === "left" ? buttonRect.left + window.scrollX : buttonRect.right + window.scrollX - menuRect.width
 
-      // Ajustar si está fuera de la pantalla
+      // Adjust if offscreen
       const rightEdge = left + menuRect.width
       const bottomEdge = top + menuRect.height
 
@@ -73,7 +73,7 @@ export const Dropdown = ({ trigger, items, align = "left", className = "", width
                      hover:brightness-105
                      focus:outline-none focus:ring-2 focus:ring-y2k-blue focus:ring-opacity-50"
             onClick={() => {
-              // Actualizar posición cuando se abre el menú
+              // Update position when the menu opens
               setTimeout(updateMenuPosition, 0)
             }}
           >

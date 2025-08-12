@@ -33,11 +33,11 @@ export function DataTable<T>({
 }: DataTableProps<T>) {
   const [currentPage, setCurrentPage] = useState(1)
 
-  // Asegurarse de que data sea siempre un array
+  // Ensure data is always an array
   const safeData = Array.isArray(data) ? data : []
   const safeColumns = Array.isArray(columns) ? columns : []
 
-  // Calcular paginación con safeData
+  // Calculate pagination with safeData
   const totalPages = Math.max(1, Math.ceil(safeData.length / pageSize))
   const paginatedData = pagination ? safeData.slice((currentPage - 1) * pageSize, currentPage * pageSize) : safeData
 

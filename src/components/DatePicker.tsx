@@ -18,7 +18,7 @@ export const DatePicker = ({
   value,
   onChange,
   label,
-  placeholder = "Seleccionar fecha",
+  placeholder = "Select date",
   error,
   className,
 }: DatePickerProps) => {
@@ -43,7 +43,7 @@ export const DatePicker = ({
     setIsOpen(!isOpen)
   }
 
-  // Cerrar el calendario al hacer clic fuera
+  // Close calendar when clicking outside
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       if (datePickerRef.current && !datePickerRef.current.contains(event.target as Node)) {
