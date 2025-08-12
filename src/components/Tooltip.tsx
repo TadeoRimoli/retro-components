@@ -29,7 +29,7 @@ export const Tooltip = ({
     setIsVisible(false)
   }
 
-  // Calcula la posición una vez montado y visible
+  // Calculate position once mounted and visible
   useEffect(() => {
     if (!isVisible || !tooltipRef.current || !triggerRef.current) return
 
