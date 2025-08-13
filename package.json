@@ -1,29 +1,31 @@
 {
   "name": "retro-components",
-  "version": "0.0.1",
+  "version": "0.0.3",
   "type": "module",
-  "main": "dist/index.cjs.js",
-  "module": "dist/index.mjs",
-  "types": "dist/index.d.ts",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
-      "import": "./dist/index.mjs",
-      "require": "./dist/index.cjs.js"
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
     },
-    "./styles.css": "./dist/styles.css"
+    "./index.css": "./dist/index.css"
   },
   "files": [
-    "dist"
+    "dist",
+    "README.md",
+    "LICENSE"
   ],
   "sideEffects": [
     "*.css",
-    "dist/styles.css"
+    "dist/index.css"
   ],
   "scripts": {
     "dev": "vite",
     "build": "tsup src/index.ts --dts --format esm,cjs --sourcemap --clean --external react,react-dom",
-    "build:css": "tailwindcss -i src/styles.css -o dist/styles.css --minify",
+    "build:css": "tailwindcss -i src/styles.css -o dist/index.css --minify",
     "lint": "eslint .",
     "preview": "vite preview",
     "prepublishOnly": "npm run build"
@@ -33,9 +35,11 @@
     "@tailwindcss/typography": "^0.5.16",
     "class-variance-authority": "^0.7.0",
     "lucide-react": "^0.539.0",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
     "tailwindcss-animate": "^1.0.7"
+  },
+  "peerDependencies": {
+    "react": ">=18",
+    "react-dom": ">=18"
   },
   "devDependencies": {
     "@eslint/js": "^8.56.0",
